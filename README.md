@@ -7,3 +7,4 @@ https://inarmag.github.io/retrace/
 - `/` landing
 - `/support/` support
 - `/privacy/` privacy policy
+- `/licenses/` open source licences
