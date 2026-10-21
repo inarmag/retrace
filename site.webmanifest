@@ -1,0 +1,13 @@
+{
+  "name": "RETRACE",
+  "short_name": "RETRACE",
+  "description": "Outrun your past.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0820",
+  "theme_color": "#0b0820",
+  "icons": [
+    { "src": "assets/ember-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/ember-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
