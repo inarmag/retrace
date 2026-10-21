@@ -23,7 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - run: mkdir -p _site && rsync -a ./ _site/ --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'README.md'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node build.mjs --check
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

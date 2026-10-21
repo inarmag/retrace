@@ -210,6 +210,7 @@ h1 { margin: 0; }
 .doc h1 { font: 800 clamp(30px, 5vw, 46px)/1.1 var(--display); color: var(--ink); letter-spacing: -0.01em; }
 .doc .updated { font-size: 14px; color: var(--ink3); margin: 14px 0 32px; }
 .doc h2 { font: 700 19px/1.3 var(--display); color: var(--ink); margin: 40px 0 10px; }
+.doc h3 { font: 600 17px/1.4 var(--body); color: var(--ink); margin: 26px 0 6px; }
 .doc p, .doc li { color: var(--ink2); }
 .doc strong { color: var(--ink); font-weight: 600; }
 .doc a { color: var(--amber); text-underline-offset: 3px; }
@@ -227,3 +228,19 @@ h1 { margin: 0; }
 @media (max-height: 760px) and (min-width: 821px) {
   .cast { transform: scale(0.85); margin-bottom: 4px; }
 }
+
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.about { margin: 28px 0 0; max-width: 56ch; font-size: 15px; line-height: 1.65; color: var(--ink3); opacity: 0; }
+.play .about { animation: rise 600ms 7.6s both; }
+.ready .about { animation: none; opacity: 1; transform: none; }
+.langs {
+  width: min(1120px, 100% - 2 * var(--gutter)); margin: 0 auto; padding: 18px 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px;
+  border-top: 1px solid var(--line); font-size: 13px; color: var(--ink3);
+}
+.langs a { text-decoration: none; }
+.langs a:hover, .langs a[aria-current] { color: var(--ink); }
+
+/* Scripts with no letter-spacing tradition, and Arabic, whose letters join. */
+:lang(ar) *, :lang(ja) *, :lang(ko) *, :lang(zh) * { letter-spacing: 0 !important; }
+:lang(ja) .about, :lang(ko) .about, :lang(zh) .about { max-width: 34em; line-break: strict; }

@@ -1,0 +1,135 @@
+{
+  "base_url": "https://inarmag.github.io/retrace/",
+  "app_store_id": "6825353074",
+  "live": false,
+  "author": "velvet.osiris",
+  "copyright": "RETRACE · © 2026 velvet.osiris",
+  "alternate_name": "RETRACE: Outrun Your Past",
+  "terms_url": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+  "static": [
+    "assets",
+    "styles.css",
+    "site.webmanifest",
+    ".nojekyll",
+    "app-ads.txt"
+  ],
+  "english_pages": [
+    "support",
+    "privacy",
+    "licenses"
+  ],
+  "english_only": [
+    "support_",
+    "privacy_",
+    "licenses_"
+  ],
+  "game_languages": [
+    "en",
+    "fr",
+    "es",
+    "de",
+    "it",
+    "pt-BR"
+  ],
+  "locales": [
+    {
+      "code": "en",
+      "hreflang": "en",
+      "path": "",
+      "name": "English",
+      "og": "en_US"
+    },
+    {
+      "code": "fr",
+      "hreflang": "fr",
+      "path": "fr/",
+      "name": "Français",
+      "og": "fr_FR"
+    },
+    {
+      "code": "es",
+      "hreflang": "es",
+      "path": "es/",
+      "name": "Español",
+      "og": "es_ES"
+    },
+    {
+      "code": "de",
+      "hreflang": "de",
+      "path": "de/",
+      "name": "Deutsch",
+      "og": "de_DE"
+    },
+    {
+      "code": "it",
+      "hreflang": "it",
+      "path": "it/",
+      "name": "Italiano",
+      "og": "it_IT"
+    },
+    {
+      "code": "pt-BR",
+      "hreflang": "pt-BR",
+      "path": "pt-br/",
+      "name": "Português",
+      "og": "pt_BR"
+    },
+    {
+      "code": "ja",
+      "hreflang": "ja",
+      "path": "ja/",
+      "name": "日本語",
+      "og": "ja_JP"
+    },
+    {
+      "code": "zh-Hant",
+      "hreflang": "zh-Hant",
+      "path": "zh-tw/",
+      "name": "繁體中文",
+      "og": "zh_TW"
+    },
+    {
+      "code": "zh-Hans",
+      "hreflang": "zh-Hans",
+      "path": "zh-cn/",
+      "name": "简体中文",
+      "og": "zh_CN"
+    },
+    {
+      "code": "ko",
+      "hreflang": "ko",
+      "path": "ko/",
+      "name": "한국어",
+      "og": "ko_KR"
+    },
+    {
+      "code": "ar",
+      "hreflang": "ar",
+      "path": "ar/",
+      "name": "العربية",
+      "og": "ar_AR",
+      "dir": "rtl"
+    },
+    {
+      "code": "vi",
+      "hreflang": "vi",
+      "path": "vi/",
+      "name": "Tiếng Việt",
+      "og": "vi_VN"
+    },
+    {
+      "code": "tr",
+      "hreflang": "tr",
+      "path": "tr/",
+      "name": "Türkçe",
+      "og": "tr_TR"
+    },
+    {
+      "code": "ru",
+      "hreflang": "ru",
+      "path": "ru/",
+      "name": "Русский",
+      "og": "ru_RU"
+    }
+  ]
+}

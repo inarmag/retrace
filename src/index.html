@@ -1,58 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{lang}}" dir="{{dir}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>RETRACE — Outrun your past</title>
-    <meta name="description" content="RETRACE, a one-thumb arcade game for iPhone. Every round you clear comes back to haunt you. Free on the App Store" />
-    <link rel="canonical" href="https://inarmag.github.io/retrace/" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <link rel="canonical" href="{{canonical}}" />
+    {{banner_html}}
     <meta name="theme-color" content="#0b0820" />
     <meta name="color-scheme" content="dark" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="RETRACE" />
-    <meta property="og:title" content="RETRACE — Outrun your past" />
-    <meta property="og:description" content="Every round you clear comes back to haunt you" />
-    <meta property="og:url" content="https://inarmag.github.io/retrace/" />
-    <meta property="og:image" content="https://inarmag.github.io/retrace/assets/og.png" />
+    <meta property="og:locale" content="{{og_locale}}" />
+    <meta property="og:title" content="{{og_title}}" />
+    <meta property="og:description" content="{{og_description}}" />
+    <meta property="og:url" content="{{canonical}}" />
+    <meta property="og:image" content="{{base_url}}assets/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://inarmag.github.io/retrace/assets/og.png" />
+    <meta name="twitter:image" content="{{base_url}}assets/og.png" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/ember-32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/ember-192.png" />
-    <link rel="apple-touch-icon" href="assets/ember-touch.png" />
-    <link rel="manifest" href="site.webmanifest" />
+    {{hreflang_html}}
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{{root}}assets/ember-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{{root}}assets/ember-192.png" />
+    <link rel="apple-touch-icon" href="{{root}}assets/ember-touch.png" />
+    <link rel="manifest" href="{{root}}site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Unbounded:wght@700;800&display=swap" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{root}}styles.css" />
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": ["VideoGame", "MobileApplication"],
-        "name": "RETRACE",
-        "url": "https://inarmag.github.io/retrace/",
-        "image": "https://inarmag.github.io/retrace/assets/ember-512.png",
-        "description": "A one-thumb arcade game. Every round you clear comes back to haunt you",
-        "genre": ["Arcade", "Casual"],
-        "gamePlatform": "iPhone",
-        "operatingSystem": "iOS",
-        "applicationCategory": "GameApplication",
-        "inLanguage": ["en", "fr", "de", "es", "it", "pt-BR"],
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-      }
+    {{jsonld_html}}
     </script>
   </head>
   <body class="play">
     <div class="sky" aria-hidden="true"></div>
 
     <div class="whisper" aria-hidden="true">
-      <span>every move you make is remembered</span>
-      <span>and it's coming back for you</span>
+      <span>{{whisper_1}}</span>
+      <span>{{whisper_2}}</span>
     </div>
 
     <main class="stage">
@@ -66,43 +57,40 @@
         <div class="ember"><div class="eyes"><i></i><i></i></div></div>
       </div>
 
-      <h1><img class="wordmark" src="assets/wordmark.svg" width="406" height="74" alt="RETRACE" /></h1>
-      <p class="tagline">Outrun your past</p>
-      <p class="line">Every round you clear comes back to haunt you</p>
+      <h1><span class="vh">RETRACE</span><img class="wordmark" src="{{root}}assets/wordmark.svg" width="406" height="74" alt="" /></h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="line">{{subhero}}</p>
 
-      <a class="store" id="get" href="#" data-app-store>
+      <a class="store" id="get" href="#" aria-label="{{store_label}}" data-app-store="{{app_store_url}}">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.88-1.28 1.24-2.52 1.26-2.59-.03-.01-2.41-.93-2.43-3.65ZM14.1 5.95c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27Z" /></svg>
-        <span><small>Download on the</small><strong>App Store</strong></span>
+        <span><small>{{store_small}}</small><strong>{{store_strong}}</strong></span>
       </a>
-      <p class="meta" data-meta>Free · iPhone</p>
+      <p class="meta" data-meta data-soon="{{meta_soon}}">{{meta_live}}</p>
+      <p class="about">{{about}}</p>
     </main>
 
     <div class="stalker" aria-hidden="true">
       <svg viewBox="0 0 34 34"><path d="M10 18q2.5 2.5 5 0M19 18q2.5 2.5 5 0" fill="none" stroke="#073246" stroke-width="2" stroke-linecap="round" /></svg>
     </div>
 
-    <button class="skip" type="button">Skip</button>
+    <button class="skip" type="button">{{skip}}</button>
 
-    <footer class="foot">
-      <span>RETRACE · © 2026 velvet.osiris</span>
-      <nav aria-label="legal">
-        <a href="support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="licenses/">Licences</a>
-      </nav>
-    </footer>
+    <nav class="langs" aria-label="{{languages_label}}">
+        {{languages_html}}
+    </nav>
+{{partial:footer}}
 
     <script>
       (() => {
-        const APP_STORE_URL = "";
-
         const body = document.body;
         const store = document.querySelector("[data-app-store]");
+        const APP_STORE_URL = store.dataset.appStore;
         if (APP_STORE_URL) store.href = APP_STORE_URL;
         else {
           store.removeAttribute("href");
           store.setAttribute("aria-disabled", "true");
-          document.querySelector("[data-meta]").textContent = "Coming soon · Free · iPhone";
+          const meta = document.querySelector("[data-meta]");
+          meta.textContent = meta.dataset.soon;
         }
 
         const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
