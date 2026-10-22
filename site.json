@@ -29,7 +29,15 @@
     "es",
     "de",
     "it",
-    "pt-BR"
+    "pt-BR",
+    "ja",
+    "zh-Hant",
+    "zh-Hans",
+    "ko",
+    "ar",
+    "vi",
+    "tr",
+    "ru"
   ],
   "locales": [
     {
