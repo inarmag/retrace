@@ -2,7 +2,7 @@
 
 Website for RETRACE, a one-hand arcade game for iPhone
 
-https://inarmag.github.io/retrace/
+https://www.retracegame.fun/
 
 - `/` landing, and the same page in 13 more languages (`/fr/`, `/ja/`, `/ar/` …)
 - `/support/` support and FAQ
