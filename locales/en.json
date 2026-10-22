@@ -51,7 +51,7 @@
   "privacy_notifications_heading": "Notifications",
   "privacy_notifications": "Reminders, if you turn them on, are created on your phone. Nothing is sent to a server.",
   "privacy_children_heading": "Children",
-  "privacy_children": "RETRACE is for everyone, children included. We do not knowingly collect personal information from children under 13: there is no account, nothing to type, and we never ask for a name, email, contacts, photos or location. When the game is used by a child, ads are requested with Google's child-directed treatment, so they are never personalised and no advertising identifier is used, and analytics carry only the random id above. If you believe a child has given us personal information, write to us and we will delete it.",
+  "privacy_children": "RETRACE is for everyone, children included. We do not knowingly collect personal information from children under 13: there is no account, nothing to type, and we never ask for a name, email, contacts, photos or location. Ads are always requested with Google's child-directed treatment, so they are never personalised, and the advertising identifier is read only if you allow tracking when iOS asks; analytics otherwise carry only the random id above. If you believe a child has given us personal information, write to us and we will delete it.",
   "privacy_contact_heading": "Contact",
   "privacy_contact": "Questions or deletion requests:",
   "licenses_title": "Licences · RETRACE",
