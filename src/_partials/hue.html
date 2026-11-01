@@ -1,0 +1,24 @@
+    <script>
+      // The game's eight anchor skies (its tokens.gd HUES): [top, bottom, door of light].
+      // One is drawn per visit, like a launch, and every page stands on it.
+      (() => {
+        const HUES = [
+          ["#E78699", "#FECABB", "#FEE9E8"], ["#DE88B7", "#FEC7CB", "#FDE8EE"],
+          ["#D78AC5", "#FFC6D3", "#FEE8F1"], ["#AA99ED", "#EEC8F6", "#F3EAFD"],
+          ["#56B2EA", "#C7D7FD", "#E4F0FE"], ["#2DC0B1", "#9DE5F5", "#D4F6F7"],
+          ["#93BC69", "#B0EAC8", "#E1F5E0"], ["#E5AF5A", "#E8E4AA", "#F7EED5"],
+        ];
+        let i = Math.floor(Math.random() * HUES.length);
+        try {
+          const kept = sessionStorage.getItem("retrace.hue");
+          i = kept === null ? -1 : Number(kept);
+          if (!(i >= 0 && i < HUES.length)) { i = Math.floor(Math.random() * HUES.length); sessionStorage.setItem("retrace.hue", i); }
+        } catch {}
+        const [top, bottom, door] = HUES[i] || HUES[0];
+        const root = document.documentElement.style;
+        root.setProperty("--sky-top", top);
+        root.setProperty("--sky-bottom", bottom);
+        root.setProperty("--door", door);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute("content", top);
+      })();
+    </script>
