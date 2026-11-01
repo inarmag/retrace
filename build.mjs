@@ -66,7 +66,7 @@ function jsonld(l, t) {
     alternateName: site.alternate_name,
     description: t.jsonld_description,
     url: pageUrl(l),
-    image: `${base}assets/ember-512.png`,
+    image: `${base}assets/icon-512.png`,
     ...(live && { sameAs: [storeUrl], downloadUrl: storeUrl }),
     operatingSystem: "iOS",
     applicationCategory: "GameApplication",
