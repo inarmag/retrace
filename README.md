@@ -1,6 +1,6 @@
 # RETRACE
 
-Website for Retrace: Dodge Your Past, a one-thumb arcade game for iPhone and iPad
+Website for Retrace: dodge your own past, a one-thumb arcade game for iPhone and iPad
 
 https://retracegame.fun/
 
