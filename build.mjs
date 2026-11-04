@@ -29,6 +29,7 @@ const esc = (s) =>
 function render(template, vars, where) {
   return template.replace(/\{\{\s*([\w:./-]+)\s*\}\}/g, (_, key) => {
     if (key.startsWith("include:")) return esc(readFileSync(join("src", key.slice(8)), "utf8").trimEnd());
+    if (key.startsWith("include_raw:")) return readFileSync(join("src", key.slice(12)), "utf8").trimEnd();
     if (key.startsWith("partial:")) return render(readFileSync(join("src/_partials", `${key.slice(8)}.html`), "utf8").trimEnd(), vars, where);
     if (!(key in vars)) throw new Error(`${where}: no string for {{${key}}}`);
     return key.endsWith("_html") ? vars[key] : esc(vars[key]);
@@ -62,7 +63,7 @@ function jsonld(l, t) {
   const data = {
     "@context": "https://schema.org",
     "@type": ["VideoGame", "MobileApplication"],
-    name: "RETRACE",
+    name: "Retrace",
     alternateName: site.alternate_name,
     description: t.jsonld_description,
     url: pageUrl(l),
@@ -110,8 +111,8 @@ for (const l of site.locales) {
     ...common(l, root),
     canonical: pageUrl(l),
     og_locale: l.og,
-    // Chinese and Japanese set no space between sentences.
-    subhero: [t.hook, t.claims].join(/^(ja|zh)/.test(l.hreflang) ? "" : " "),
+    // Before the game is live the store button is shown but leads nowhere.
+    store_meta: live ? t.meta_live : t.meta_soon,
     hreflang_html: hreflang(),
     languages_html: languageNav(l, root),
     jsonld_html: jsonld(l, { ...en, ...t }),

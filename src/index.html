@@ -7,11 +7,11 @@
     <meta name="description" content="{{meta_description}}" />
     <link rel="canonical" href="{{canonical}}" />
     {{banner_html}}
-    <meta name="theme-color" content="#e78699" />
+    <meta name="theme-color" content="#e15a50" />
     <meta name="color-scheme" content="light" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="RETRACE" />
+    <meta property="og:site_name" content="Retrace" />
     <meta property="og:locale" content="{{og_locale}}" />
     <meta property="og:title" content="{{og_title}}" />
     <meta property="og:description" content="{{og_description}}" />
@@ -24,14 +24,15 @@
 
     {{hreflang_html}}
 
+    <link rel="icon" type="image/svg+xml" href="{{root}}assets/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="{{root}}assets/icon-48.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{root}}assets/icon-32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="{{root}}assets/icon-192.png" />
     <link rel="apple-touch-icon" href="{{root}}assets/icon-touch.png" />
     <link rel="manifest" href="{{root}}site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" />
     <link rel="stylesheet" href="{{root}}styles.css" />
 {{partial:hue}}
 
@@ -39,128 +40,156 @@
     {{jsonld_html}}
     </script>
   </head>
-  <body class="play">
+  <body class="landing">
     <div class="sky" aria-hidden="true"></div>
 
-    <div class="whisper" aria-hidden="true">
-      <span>{{whisper_1}}</span>
-      <span>{{whisper_2}}</span>
-    </div>
+    <main>
+      <section class="hero">
+        <div class="hero-head">
+          <h1 class="brand"><span class="vh">Retrace</span><img class="mark" src="{{root}}assets/app-icon.png" width="120" height="120" alt="" /><img class="wordmark" src="{{root}}assets/wordmark.svg" width="408" height="61" alt="" /></h1>
+          <p class="headline">{{hero_title}}</p>
+        </div>
 
-    <main class="stage">
-      <h1><span class="vh">RETRACE</span><img class="wordmark" src="{{root}}assets/wordmark.svg" width="408" height="61" alt="" /></h1>
-      <p class="tagline">{{tagline}}</p>
+        <div class="hero-get" id="get">
+          {{partial:store}}
+        </div>
 
-      <div class="scene" aria-hidden="true">
-        <svg viewBox="0 236 390 404" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <radialGradient id="glow"><stop offset="0" stop-color="#fff" stop-opacity=".85" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
-            <mask id="laid" maskUnits="userSpaceOnUse" x="-20" y="200" width="430" height="520">
-              <path class="lay" d="" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" />
-            </mask>
-          </defs>
-          <ellipse class="door-glow" cx="195" cy="336" rx="190" ry="100" fill="url(#glow)" opacity=".65" />
-          <path class="door" d="M125 406V300A70 52 0 0 1 265 300V406Z" style="fill: var(--door)" />
-          <rect class="horizon" x="70" y="406" width="250" height="1.4" fill="#fff" opacity=".85" />
-          <path class="loop" d="M-6 700C64 640 164 630 144 550C130 494 60 494 68 550C78 604 166 590 206 500L214 470" fill="none" stroke="#fff" stroke-width="2.6" stroke-dasharray="7 7" stroke-linecap="round" opacity=".95" mask="url(#laid)" />
-          <g class="plane" transform="translate(214 470) rotate(16) scale(2.592)">
-            <path d="M0-17 13 12 1.7 8.6 0 14-1.7 8.6-13 12Z" fill="#d23f2e" />
-            <path d="M0-17 1.7 8.6 0 14-1.7 8.6Z" fill="#8a2318" />
-            <path d="M0-17-7.6 10.2M0-17 7.6 10.2" stroke="#fff" stroke-width=".8" opacity=".55" stroke-linecap="round" />
-          </g>
-        </svg>
+        <p class="hero-body">{{hero_body}}</p>
+
+        <div class="scene" aria-hidden="true">
+          <svg viewBox="0 0 400 520">
+            <defs>
+              <radialGradient id="scene-glow"><stop offset="0" stop-color="#fff4e4" stop-opacity=".65" /><stop offset="1" stop-color="#fff4e4" stop-opacity="0" /></radialGradient>
+              <linearGradient id="scene-line"><stop offset="0" stop-color="#fff8ec" stop-opacity="0" /><stop offset=".18" stop-color="#fff8ec" stop-opacity=".8" /><stop offset=".82" stop-color="#fff8ec" stop-opacity=".8" /><stop offset="1" stop-color="#fff8ec" stop-opacity="0" /></linearGradient>
+            </defs>
+            <ellipse cx="200" cy="135" rx="130" ry="115" fill="url(#scene-glow)" />
+            <path class="scene-door" d="M120 150A80.1 80.1 0 0 1 280 150Z" />
+            <rect x="0" y="149" width="400" height="2" fill="url(#scene-line)" />
+            <path class="scene-past" d="M40 530C60 420 300 380 230 170" opacity=".7" />
+            <path class="scene-past" d="M380 530C360 400 90 360 170 170" opacity=".9" />
+            <path class="scene-you" d="M205 530C235 460 150 410 192 330" />
+            <use href="#past" transform="translate(242 254) rotate(4) scale(1.5)" />
+            <use href="#past" transform="translate(103 443) rotate(49) scale(1.5)" />
+            <use href="#past" transform="translate(328 446) rotate(-47) scale(1.5)" />
+            <use href="#plane" transform="translate(196 316) rotate(28) scale(1.8)" />
+          </svg>
+        </div>
+      </section>
+
+      <div class="sheet">
+        <section class="how" aria-labelledby="how">
+          <h2 id="how">{{how_heading}}</h2>
+          <ol class="steps">
+            <li>
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <rect class="band" x="8" y="78" width="104" height="30" rx="6" />
+                <path class="you" d="M52 98C54 84 62 76 70 62" />
+                <circle class="touch" cx="40" cy="100" r="11" />
+                <circle class="touch-ring" cx="40" cy="100" r="19" />
+                <use href="#plane" transform="translate(72 58) rotate(28) scale(1.15)" />
+              </svg>
+              <h3>{{how_1_title}}</h3>
+              <p>{{how_1_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <ellipse class="glow" cx="60" cy="48" rx="46" ry="38" />
+                <path class="door" d="M32 56A28.3 28.3 0 0 1 88 56Z" />
+                <rect class="line" x="0" y="55.2" width="120" height="1.6" />
+                <path class="you" d="M30 112C40 96 64 98 60 74" />
+                <use href="#plane" transform="translate(60 70) scale(1.15)" />
+              </svg>
+              <h3>{{how_2_title}}</h3>
+              <p>{{how_2_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <path class="past-line" d="M18 112C30 80 92 76 96 20" />
+                <path class="past-line" d="M100 112C88 90 20 70 30 18" />
+                <use href="#past" transform="translate(84 44) rotate(24) scale(1.05)" />
+                <use href="#past" transform="translate(40 40) rotate(-18) scale(1.05)" />
+                <path class="you" d="M60 114C62 100 54 92 58 80" />
+                <use href="#plane" transform="translate(58 76) rotate(4) scale(1.15)" />
+              </svg>
+              <h3>{{how_3_title}}</h3>
+              <p>{{how_3_body}}</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="rival">
+          <h2>{{rival_heading}}</h2>
+          <p>{{rival_body}}</p>
+        </section>
+
+        <section class="powers" aria-labelledby="powers">
+          <h2 id="powers">{{powers_heading}}</h2>
+          <p class="intro">{{powers_intro}}</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="22" width="36" height="18" rx="4" class="fill" /><path d="M24 20V6m-6 6 6-6 6 6" class="stroke" /></svg>
+              <h3>{{pu_grace}}</h3>
+              <p>{{pu_grace_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 38h36" class="stroke" /><path d="M24 33s-10-9.5-10-17a10 10 0 0 1 20 0c0 7.5-10 17-10 17Z" class="fill" /><circle cx="24" cy="16" r="3.5" class="hole" /></svg>
+              <h3>{{pu_start}}</h3>
+              <p>{{pu_start_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M27 4 10 27h12l-3 17 19-25H26l1-15Z" class="fill" /></svg>
+              <h3>{{pu_speed}}</h3>
+              <p>{{pu_speed_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" class="bubble" /><use href="#plane" transform="translate(24 25) scale(.62)" /></svg>
+              <h3>{{pu_immunity}}</h3>
+              <p>{{pu_immunity_body}}</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#past" transform="translate(20 26) rotate(-10) scale(.7)" /><path d="M30 10l10 10M40 10 30 20" class="stroke" /></svg>
+              <h3>{{pu_erase}}</h3>
+              <p>{{pu_erase_body}}</p>
+            </li>
+          </ul>
+          <p class="extras">{{extras}}</p>
+        </section>
+
+        <section class="last">
+          <img class="icon" src="{{root}}assets/app-icon.png" width="120" height="120" alt="" loading="lazy" />
+          <h2>{{last_heading}}</h2>
+          <p>{{last_body}}</p>
+          {{partial:store}}
+        </section>
+
+        <nav class="langs" aria-label="{{languages_label}}">
+          {{languages_html}}
+        </nav>
+{{partial:footer}}
       </div>
-
-      <p class="line">{{subhero}}</p>
-
-      <a class="store" id="get" href="#" aria-label="{{store_label}}" data-app-store="{{app_store_url}}">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.78.74 2.99.72 1.24-.02 2.02-1.12 2.77-2.23.88-1.28 1.24-2.52 1.26-2.59-.03-.01-2.41-.93-2.43-3.65ZM14.1 5.95c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27Z" /></svg>
-        <span><small>{{store_small}}</small><strong>{{store_strong}}</strong></span>
-      </a>
-      <p class="meta" data-meta data-soon="{{meta_soon}}">{{meta_live}}</p>
-      <p class="about">{{about}}</p>
     </main>
 
-    <svg class="echo" viewBox="-17 -17 34 34" aria-hidden="true">
-      <path d="M0-14 10.5 10 1.4 7.1 0 11.5-1.4 7.1-10.5 10Z" fill="#fff" />
-      <path d="M0-14 1.4 7.1 0 11.5-1.4 7.1Z" style="fill: var(--door)" />
+    <svg width="0" height="0" class="defs" aria-hidden="true">
+      <defs>
+        <g id="plane">
+          <path d="M0-17 13 12 1.7 8.6 0 14-1.7 8.6-13 12Z" fill="#d23f2e" />
+          <path d="M0-17-13 12-1.7 8.6Z" fill="#1a0f2e" fill-opacity=".14" />
+          <path d="M0-17 1.7 8.6 0 14-1.7 8.6Z" fill="#8a2318" />
+          <path d="M.15-16 1.85 8.6" stroke="#fff" stroke-width=".8" stroke-opacity=".55" stroke-linecap="round" />
+        </g>
+        <g id="past" class="past-plane">
+          <path d="M0-17-13 12-1.7 8.6Z" class="past-shade" />
+          <path d="M0-17 13 12 1.7 8.6Z" class="past-light" />
+          <path d="M0-17 1.7 8.6 0 14-1.7 8.6Z" class="past-shade" />
+        </g>
+      </defs>
     </svg>
 
-    <button class="skip" type="button">{{skip}}</button>
-
-    <nav class="langs" aria-label="{{languages_label}}">
-        {{languages_html}}
-    </nav>
-{{partial:footer}}
-
     <script>
-      (() => {
-        const body = document.body;
-        const store = document.querySelector("[data-app-store]");
-        const APP_STORE_URL = store.dataset.appStore;
-        if (APP_STORE_URL) store.href = APP_STORE_URL;
-        else {
-          store.removeAttribute("href");
-          store.setAttribute("aria-disabled", "true");
-          const meta = document.querySelector("[data-meta]");
-          meta.textContent = meta.dataset.soon;
-        }
-
-        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-        let seen = false;
-        try { seen = sessionStorage.getItem("retrace.seen") === "1"; sessionStorage.setItem("retrace.seen", "1"); } catch {}
-
-        // The plane flies in once along its loop, laying its dashes, and holds still (the game's home).
-        const loop = document.querySelector(".scene .loop");
-        const lay = document.querySelector(".scene .lay");
-        const plane = document.querySelector(".scene .plane");
-        lay.setAttribute("d", loop.getAttribute("d"));
-        const L = loop.getTotalLength();
-        lay.style.strokeDasharray = L;
-        const pose = (s) => {
-          const p = loop.getPointAtLength(s), q = loop.getPointAtLength(Math.min(L, s + 1));
-          const a = s >= L ? 16 : (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI + 90;
-          plane.setAttribute("transform", `translate(${p.x} ${p.y}) rotate(${a}) scale(2.592)`);
-          lay.style.strokeDashoffset = L - s;
-        };
-        let flying = 0;
-        const settle = () => { cancelAnimationFrame(flying); flying = 0; pose(L); };
-        const fly = (delay) => {
-          pose(0);
-          const t0 = performance.now() + delay;
-          const step = (now) => {
-            const k = Math.min(1, Math.max(0, (now - t0) / 2000));
-            pose(L * (1 - Math.pow(1 - k, 3)));
-            flying = k < 1 ? requestAnimationFrame(step) : 0;
-          };
-          flying = requestAnimationFrame(step);
-        };
-
-        const land = () => { body.classList.remove("play"); body.classList.add("ready"); settle(); };
-        if (seen || reduced) land();
-        else fly(4400);
-        document.querySelector(".skip").addEventListener("click", land);
-        addEventListener("keydown", (e) => { if (e.key === "Escape" || e.key === "Enter" || e.key === " ") land(); }, { once: true });
-        if (reduced || !matchMedia("(pointer: fine)").matches) return;
-
-        // Your echo: the pointer's own path, played back a moment late.
-        const echo = document.querySelector(".echo");
-        const DELAY = 700;
-        const path = [];
-        let awake = seen, angle = 0;
-        setTimeout(() => (awake = true), 4400);
-        addEventListener("pointermove", (e) => path.push({ t: performance.now(), x: e.clientX, y: e.clientY }), { passive: true });
-        (function tick() {
-          requestAnimationFrame(tick);
-          const now = performance.now() - DELAY;
-          while (path.length > 2 && path[1].t <= now) path.shift();
-          if (!awake || !path.length || path[0].t > now) return;
-          const [a, b] = path;
-          if (b && Math.hypot(b.x - a.x, b.y - a.y) > 2) angle = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI + 90;
-          echo.classList.add("on");
-          echo.style.transform = `translate(${a.x}px, ${a.y}px) rotate(${angle}deg)`;
-        })();
-      })();
+      // Before the game is live the store buttons stay but lead nowhere.
+      for (const a of document.querySelectorAll("[data-store]")) {
+        if (!a.getAttribute("href")) { a.removeAttribute("href"); a.setAttribute("aria-disabled", "true"); }
+      }
     </script>
   </body>
 </html>

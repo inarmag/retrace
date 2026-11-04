@@ -1,24 +1,26 @@
     <script>
-      // The game's eight anchor skies (its tokens.gd HUES): [top, bottom, door of light].
-      // One is drawn per visit, like a launch, and every page stands on it.
+      // The game's sixty round skies (its tokens.gd HUES): [top, bottom, door, past plane, past line].
+      // A visit starts on one of the eight launch anchors (HUE_ANCHORS, one every 45° of hue), as a
+      // launch does, and every page stands on it. The landing's demo walks on from there.
       (() => {
-        const HUES = [
-          ["#E78699", "#FECABB", "#FEE9E8"], ["#DE88B7", "#FEC7CB", "#FDE8EE"],
-          ["#D78AC5", "#FFC6D3", "#FEE8F1"], ["#AA99ED", "#EEC8F6", "#F3EAFD"],
-          ["#56B2EA", "#C7D7FD", "#E4F0FE"], ["#2DC0B1", "#9DE5F5", "#D4F6F7"],
-          ["#93BC69", "#B0EAC8", "#E1F5E0"], ["#E5AF5A", "#E8E4AA", "#F7EED5"],
-        ];
-        let i = Math.floor(Math.random() * HUES.length);
+        const HUES = [["e3915d","eed4a9","faecdf","fbf3ea","c36f00"],["e19077","f2d1b2","fbebe3","fcf2ec","c3693a"],["e08e8e","f6ceba","fbeae7","fdf0ee","c46354"],["df8ba3","facac3","fce9ea","fdefef","c45c69"],["de88b7","fec7cb","fde8ee","feedf1","c5537c"],["db89be","fec7cf","fde8f0","fdedf3","c25485"],["d78ac5","ffc6d3","fee8f1","fdedf4","bf558d"],["d28cca","fdc6d7","fde8f3","fcedf5","ba5894"],["cc8ecf","fbc7dc","fbe9f4","fbeef6","b55b9c"],["c790d4","f9c7e0","fae9f6","faeef7","b05da3"],["c292d9","f7c7e5","f9e9f7","f9eef9","ac5faa"],["bc94de","f4c7e9","f7e9f9","f8eefa","a761b1"],["b696e3","f2c8ed","f6eafa","f7effb","a162b8"],["b097e8","f0c8f2","f4eafc","f6effc","9c64bf"],["aa99ed","eec8f6","f3eafd","f5effd","9765c6"],["a49ced","eacaf7","f2ebfd","f4effd","9069c8"],["9d9fec","e7cbf7","f0ebfd","f3f0fd","896cc9"],["96a1ec","e3cdf8","efecfd","f2f0fd","816fcb"],["8fa4ec","dfcef9","edecfd","f1f1fd","7972cc"],["87a6ec","dbd0fa","ecedfd","f0f1fd","7175ce"],["7fa9eb","d7d1fa","eaeefe","eef1fd","6778d0"],["77abeb","d3d3fb","e9eefe","edf2fd","5d7bd1"],["6dadeb","cfd4fc","e7effe","ecf2fd","517dd3"],["62b0ea","cbd6fc","e6effe","ebf3fd","4380d4"],["56b2ea","c7d7fd","e4f0fe","eaf3fd","3182d6"],["53b4e4","c3d8fc","e2f1fd","e9f3fc","2d84d0"],["4fb5df","bfdafb","e1f1fd","e9f4fc","2a86ca"],["4cb7d9","bcdbfb","dff2fc","e8f4fb","2688c3"],["48b8d4","b8ddfa","def2fb","e7f4fb","228abd"],["44bace","b3def9","dcf3fb","e7f5fa","1e8bb7"],["40bbc8","afe0f8","dbf4fa","e6f5f9","1a8db1"],["3cbcc3","abe1f7","d9f4f9","e5f5f9","158eaa"],["37bebd","a6e2f7","d7f5f8","e4f5f8","0f8fa4"],["32bfb7","a2e4f6","d6f5f8","e4f6f8","07919e"],["2dc0b1","9de5f5","d4f6f7","e3f6f7","009297"],["3fc0ab","9fe6f1","d5f6f5","e4f6f6","0c9390"],["4dc0a4","a1e6ec","d7f6f2","e4f6f4","159489"],["59bf9e","a3e7e8","d8f6f0","e5f6f3","1c9581"],["63bf97","a5e7e3","d9f6ee","e6f6f2","22967a"],["6cbf90","a6e8df","dbf6ec","e7f6f1","289672"],["75be89","a8e8db","dcf5e9","e7f6ef","2d9769"],["7dbe81","aae9d6","ddf5e7","e8f6ee","319861"],["85bd7a","ace9d1","def5e5","e9f6ed","369858"],["8cbd72","aeeacd","e0f5e2","e9f6eb","3a994e"],["93bc69","b0eac8","e1f5e0","eaf6ea","3e9943"],["9dbb68","b6eac5","e3f4df","ebf6e9","4f9740"],["a6ba66","bce9c2","e6f4de","edf5e9","5c963c"],["aeb965","c2e8bf","e8f3dd","eef5e8","689438"],["b7b863","c8e8bc","eaf2dc","eff4e7","739234"],["bfb662","cde7b9","ecf2db","f1f4e7","7d902f"],["c7b560","d3e7b6","eef1d9","f2f4e6","868e2a"],["cfb45f","d8e6b3","f1f0d8","f3f3e5","8e8b25"],["d6b25d","dee5b0","f3efd7","f4f3e4","97891e"],["deb15c","e3e5ad","f5efd6","f6f2e4","9e8716"],["e5af5a","e8e4aa","f7eed5","f7f2e3","a6840b"],["e5aa5b","e9e1aa","f7eed7","f8f2e4","ab8109"],["e5a55b","eadfaa","f8edd8","f8f2e5","b07e07"],["e4a05c","ebdcaa","f8edda","f9f3e7","b57a05"],["e49b5c","ecd9a9","f9eddc","faf3e8","ba7704"],["e3965d","edd7a9","f9ecdd","faf3e9","be7302"]];
+        const ANCHORS = [2, 6, 15, 23, 31, 40, 48, 57];
+        let start = ANCHORS[Math.floor(Math.random() * ANCHORS.length)];
         try {
-          const kept = sessionStorage.getItem("retrace.hue");
-          i = kept === null ? -1 : Number(kept);
-          if (!(i >= 0 && i < HUES.length)) { i = Math.floor(Math.random() * HUES.length); sessionStorage.setItem("retrace.hue", i); }
+          const kept = Number(sessionStorage.getItem("retrace.hue2"));
+          if (ANCHORS.includes(kept)) start = kept;
+          else sessionStorage.setItem("retrace.hue2", start);
         } catch {}
-        const [top, bottom, door] = HUES[i] || HUES[0];
+        const [top, bottom, door, , line] = HUES[start].map((c) => "#" + c);
+        // The past's darker wing: the line darkened by 0.22, as the game's ECHO_SHADE does.
+        const shade = "#" + [1, 3, 5].map((i) => Math.round(parseInt(line.slice(i, i + 2), 16) * 0.78).toString(16).padStart(2, "0")).join("");
         const root = document.documentElement.style;
         root.setProperty("--sky-top", top);
         root.setProperty("--sky-bottom", bottom);
         root.setProperty("--door", door);
+        root.setProperty("--past", line);
+        root.setProperty("--past-shade", shade);
         document.querySelector('meta[name="theme-color"]')?.setAttribute("content", top);
+        window.RETRACE_SKY = { HUES, start };
       })();
     </script>
