@@ -1,13 +1,21 @@
 {
-  "name": "RETRACE",
-  "short_name": "RETRACE",
-  "description": "Outrun your past.",
+  "name": "Retrace",
+  "short_name": "Retrace",
+  "description": "Dodge your past.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#e78699",
-  "theme_color": "#e78699",
+  "background_color": "#e15a50",
+  "theme_color": "#e15a50",
   "icons": [
-    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }

@@ -1,6 +1,6 @@
 # RETRACE
 
-Website for RETRACE, a one-hand arcade game for iPhone
+Website for Retrace: Dodge Your Past, a one-thumb arcade game for iPhone and iPad
 
 https://retracegame.fun/
 
@@ -28,8 +28,13 @@ python3 -m http.server -d _site
   `privacy_`, `licenses_`.
 - `game_languages` in `site.json` lists the languages the game itself speaks (the
   structured data's `inLanguage`); update it when the game gains one.
-- `live: true` in `site.json` turns on the App Store link, the Smart App Banner and the
-  store link in the structured data.
+- `live: true` in `site.json` turns on the App Store link (`app_store_id`), the Smart App
+  Banner and the store link in the structured data. Off, the store buttons stay but go nowhere.
+- `src/_partials/hue.html` holds the game's sixty round skies and its eight launch anchors, copied
+  from `src/ui/kit/tokens.gd` (`HUES`, `HUE_ANCHORS`) in the game's repo: copy them again when
+  the game's palette moves. Every page stands on one anchor a visit.
+- The privacy policy follows what the game ships (`docs/RETRACE.md` Part IV and V in the game's
+  repo): change both together.
 - The custom domain is one line: `base_url` in `site.json`.
 
 Deployed by `.github/workflows/pages.yml` on every push to `main`.
